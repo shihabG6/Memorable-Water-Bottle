@@ -1,8 +1,4 @@
-import { useState } from "react";
-
 const Bottle = ({ bottle,handelToCartAdd }) => {
-  const [bayBottle,setBayBottle]=useState(false);
-  console.log(bottle);
   const {
     id,
     category,
@@ -14,9 +10,7 @@ const Bottle = ({ bottle,handelToCartAdd }) => {
     img,
     stock,
   } = bottle;
-  const handelBay = ()=>{
-    setBayBottle(!bayBottle)
-  }
+ 
 
   return (
     <div
@@ -31,7 +25,7 @@ const Bottle = ({ bottle,handelToCartAdd }) => {
       <h3>{name}</h3>
       <h3>Price: {price}$</h3>
       <p>{seller}</p>
-      <button onClick={handelToCartAdd}>Purchase</button>
+      <button onClick={()=>handelToCartAdd(bottle)}>Purchase</button>
       <div style={{ display: "flex", justifyContent: "space-around" }}>
         <p>Quantity:{quantity}</p>
         <p>Stock:({stock})</p>
